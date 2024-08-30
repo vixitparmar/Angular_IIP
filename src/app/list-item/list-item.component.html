@@ -1,0 +1,23 @@
+<div class="container mt-4 border p-2 rounded shadow-sm border-dark">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            <h2 class="mb-3 text-center">List Item</h2>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Filter by Title..." [(ngModel)]="filterTerm"
+                    (input)="filterItems()" />
+                <button class="btn btn-outline-secondary" (click)="filterItems()">Filter</button>
+            </div>
+            <div class="d-flex justify-content-end mb-3">
+                <button class="btn btn-primary" (click)="sortItems()">
+                    Sort by Title
+                </button>
+            </div>
+            <ul class="list-group">
+                <li *ngFor="let item of filteredItems" class="list-group-item">
+                    <h5>{{ item.title }}</h5>
+                    <p>{{ item.body }}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
