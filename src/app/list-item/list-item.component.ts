@@ -22,6 +22,7 @@ export class ListItemComponent {
     this.fetchItems();
   }
 
+  // Method to fetch items from the service
   fetchItems(): void {
     this.itemListService.fetchItems().subscribe(data => {
       this.items = data;
@@ -30,6 +31,7 @@ export class ListItemComponent {
     });
   }
 
+  // Method to sort the items based on the title
   sortItems(): void {
     if (this.sortDirection === 'asc') {
       this.filteredItems.sort((a, b) => a.title > b.title ? 1 : -1);
@@ -40,7 +42,7 @@ export class ListItemComponent {
     }
   }
 
-
+  // Method to filter the items based on the user's input
   filterItems(): void {
     this.filteredItems = this.items.filter(item =>
       item.title.toLowerCase().includes(this.filterTerm.toLowerCase())
